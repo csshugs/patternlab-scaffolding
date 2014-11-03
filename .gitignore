@@ -1,0 +1,14 @@
+.DS_Store
+public/*
+source/*
+config.ini
+latest-change.txt
+*-ck.js
+*.sass-cache/
+node_modules/
+bower_components/
+*.idea/
+.idea/
+.grunt
+*.sublime-workspace
+*.sublime-project
