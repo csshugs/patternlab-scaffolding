@@ -1,3 +1,3 @@
 [submodule "source/css-scaffold"]
-	path = source/css-scaffold
+	path = source/css
 	url = git@github.com:csshugs/css-scaffold.git
