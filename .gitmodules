@@ -1,0 +1,3 @@
+[submodule "source/css"]
+	path = source/css
+	url = git@github.com:csshugs/css-scaffold.git
