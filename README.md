@@ -1,6 +1,6 @@
 # patternlab scaffolding
 
-- [Download](https://github.com/csshugs/patternlab-scaffolding/archive/master.zip) or clone this project
+- Clone this project
 - [Download patternlab](https://github.com/pattern-lab/patternlab-php/archive/master.zip)
 - Grab everthing from the patternlab-ZIP except the `source` folder, the `.gitignore` and `README.md` and throw it into the root of your project
 - Go to the `source` directory and delete the `css` folder
