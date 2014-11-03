@@ -1,3 +1,0 @@
-[submodule "source/css"]
-	path = patternlab/source/css
-	url = git@github.com:csshugs/css-scaffold.git
