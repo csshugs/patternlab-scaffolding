@@ -1,6 +1,16 @@
 module.exports = function(grunt) {
 
+
+
+    var globalConfig = {
+        // Adjust this value to the assets destination path of your cms
+        cms: 'cms'
+    };
+
+
+
     grunt.initConfig({
+        globalConfig: globalConfig,
         connect: {
             options: {
                 port: 8000,
@@ -64,7 +74,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'cms/css/style.css': 'source/css/style.scss'
+                    '<%= globalConfig.cms %>/css/style.css': 'source/css/style.scss'
                 }
             }
         },
@@ -78,7 +88,7 @@ module.exports = function(grunt) {
                 ]
             },
             cms: {
-                src: 'cms/css/style.css'
+                src: '<%= globalConfig.cms %>/css/style.css'
             }
         },
         concat: {
@@ -91,13 +101,13 @@ module.exports = function(grunt) {
             },
             cms: {
                 src: ['source/js/plugins/*.js', 'source/js/script.js'],
-                dest: 'cms/js/script.js',
+                dest: '<%= globalConfig.cms %>/js/script.js',
             }
         },
         uglify: {
             cms: {
                 files: {
-                    'cms/js/script.js': 'cms/js/script.js'
+                    '<%= globalConfig.cms %>/js/script.js': '<%= globalConfig.cms %>/js/script.js'
                 }
             }
         }
