@@ -15,7 +15,7 @@ rm -rf source/css                                           && \
 git submodule init                                          && \
 git submodule update                                        && \
 rm -rf source/css/.git                                      && \
-rm -rf .git/modules/                                        && \
+rm -rf .git/                                                && \
 rm -rf .gitmodules                                          && \
 rm -rf source/js/fitvids.js                                 && \
 rm -rf source/js/init.js                                    && \
@@ -23,7 +23,8 @@ mv source/js/jquery-2.0.0b2.js source/js/jquery.js          && \
 mkdir source/js/plugins                                     && \
 > source/js/script.js                                       && \
 npm install                                                 && \
-bower install
+bower install                                               && \
+git init
 
 echo "Pattern Lab is now beautifully scaffolded"
 
