@@ -1,4 +1,15 @@
-# patternlab scaffolding
+## Getting Started
+
+#### Automatic
+
+- Clone this project
+- Run `init`
+- Start the patternlab watcher and grunt in two seperate command prompts via `php core/builder.php -wr` and `grunt`
+- Go to `http://localhost:8000`
+
+
+
+#### Manually
 
 - Clone this project
 - [Download patternlab](https://github.com/pattern-lab/patternlab-php/archive/master.zip)
@@ -10,3 +21,11 @@
 - Then: `npm install && bower install`
 - Start the patternlab watcher and grunt in two seperate command prompts via `php core/builder.php -wr` and `grunt`
 - Go to `http://localhost:8000`
+
+
+
+## Troubleshooting
+
+#### fatal: Not a git repository
+
+It's necessary to **clone** this project. Downloading the ZIP won't work!

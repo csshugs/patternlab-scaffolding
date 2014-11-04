@@ -15,9 +15,6 @@ rm -rf source/css                                           && \
 git submodule init                                          && \
 git submodule update                                        && \
 npm install                                                 && \
-bower install                                               && \
-rm init
+bower install
 
-echo "Pattern Lab is now perfectly scaffolded"
-
-git status
+echo "Pattern Lab is now beautifully scaffolded"
