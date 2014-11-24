@@ -1,8 +1,4 @@
 .DS_Store
-public/*
-config.ini
-latest-change.txt
-*-ck.js
 *.sass-cache/
 node_modules/
 bower_components/
