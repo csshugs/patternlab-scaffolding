@@ -2,7 +2,7 @@
 
 echo "Initializing project"
 
-git clone git@github.com:pattern-lab/patternlab-php.git     && \
+git clone https://github.com/pattern-lab/patternlab-php.git && \
 mv patternlab-php/config/ .                                 && \
 mv patternlab-php/core/ .                                   && \
 mv patternlab-php/extras/ .                                 && \
