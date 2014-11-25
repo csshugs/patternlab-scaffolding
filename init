@@ -14,6 +14,9 @@ php core/builder.php -g                                     && \
 rm -rf source/css                                           && \
 git submodule init                                          && \
 git submodule update                                        && \
+cd source/css/                                              && \
+git pull origin master                                      && \
+cd ../../                                                   && \
 rm -rf source/css/.git                                      && \
 rm -rf .git/                                                && \
 rm -rf .gitmodules                                          && \
