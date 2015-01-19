@@ -3,6 +3,8 @@
 #### Automatic
 
 - Clone this project
+- Run `npm install`
+- Run `bower install`
 - Run `init`
 - Start the patternlab watcher and grunt in two seperate command prompts via `php core/builder.php -wr` and `grunt`
 - Go to `http://localhost:8000`
