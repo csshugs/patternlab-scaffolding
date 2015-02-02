@@ -11,6 +11,20 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         globalConfig: globalConfig,
+
+        // Shell
+        shell: {
+            // Generates only the patterns.
+            patternlab_patternsonly: {
+                command: 'php core/builder.php -gp'
+            },
+            // Regenerates whole public dir.
+            patternlab_generate: {
+                command: 'php core/builder.php -g'
+            }
+        },
+
+        // Connect
         connect: {
             options: {
                 port: 8000,
@@ -31,6 +45,8 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        // Watch
         watch: {
             scss: {
                 files: ['source/css/**/{.*,*,*/*}'],
@@ -40,25 +56,51 @@ module.exports = function(grunt) {
                 files: ['source/js/**/{.*,*,*/*}'],
                 tasks: 'js'
             },
+            img: {
+                files: ['source/images/**/{.*,*,*/*}'],
+                tasks: ['copy:img_public', 'copy:img_cms']
+            },
+            fonts: {
+                files: ['source/fonts/**/{.*,*,*/*}'],
+                tasks: ['copy:fonts_public', 'copy:fonts_cms']
+            },
+            html: {
+                files: [
+                    'source/_patterns/**/*.mustache',
+                    'source/**/*.json'
+                ],
+                tasks: [
+                    'shell:patternlab_patternsonly'
+                ],
+                options: {
+                    spawn: false
+                }
+            },
             livereload: {
                 options: {
                     livereload: 35729
                 },
                 files: [
                     'public/css/style.css',
+                    'public/patterns/**/*',
                     'public/js/**/*'
                 ]
             }
         },
+
+        // Concurrent
         concurrent: {
             dev: [
                 'sass'
             ]
         },
+
+        // Sass
         sass: {
             options: {
                 require: 'sass-globbing',
-                loadPath: 'bower_components'
+                loadPath: 'bower_components',
+                sourcemap: 'none'
             },
             dev: {
                 options: {
@@ -78,6 +120,8 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        // Autoprefixer
         autoprefixer: {
             options: {
                 browsers: [
@@ -91,6 +135,63 @@ module.exports = function(grunt) {
                 src: '<%= globalConfig.cms %>/css/style.css'
             }
         },
+
+        // Copy
+        copy: {
+            img_public: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/images/',
+                        src: ['./**/*.*'],
+                        dest: 'public/images/'
+                    }
+                ]
+            },
+            // In the cms you don't want to have dummy images.
+            img_cms: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/images/ui/',
+                        src: ['./**/*.*'],
+                        dest: '<%= globalConfig.cms %>/images/ui/'
+                    }
+                ]
+            },
+            fonts_public: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/fonts/',
+                        src: ['./**/*.*'],
+                        dest: 'public/fonts/'
+                    }
+                ]
+            },
+            fonts_cms: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/fonts/',
+                        src: ['./**/*.*'],
+                        dest: '<%= globalConfig.cms %>/fonts/'
+                    }
+                ]
+            },
+            js_public: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/js/',
+                        src: ['script.js'],
+                        dest: 'public/js/'
+                    }
+                ]
+            }
+        },
+
+        // Concat
         concat: {
             options: {
                 separator: ' ',
@@ -104,22 +205,40 @@ module.exports = function(grunt) {
                 dest: '<%= globalConfig.cms %>/js/script.js',
             }
         },
+
+        // Uglifiy
         uglify: {
             cms: {
                 files: {
                     '<%= globalConfig.cms %>/js/script.js': '<%= globalConfig.cms %>/js/script.js'
                 }
             }
+        },
+
+        // Clean
+        clean: {
+            cms: {
+                src: [
+                    '<%= globalConfig.cms %>/css/',
+                    '<%= globalConfig.cms %>/images/',
+                    '<%= globalConfig.cms %>/js/',
+                    '<%= globalConfig.cms %>/fonts/'
+                ]
+            }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask('scss', [
         'sass',
@@ -127,13 +246,18 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('js', [
+        'copy:js_public',
         'concat',
         'uglify'
     ]);
 
     grunt.registerTask('default', [
+        'shell:patternlab_generate',
+        'clean',
         'concat',
+        'copy',
         'uglify',
+        'shell:patternlab_patternsonly',
         'concurrent',
         'connect:server',
         'watch'
