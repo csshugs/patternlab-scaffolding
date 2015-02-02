@@ -23,6 +23,7 @@ rm -rf .gitmodules                                          && \
 rm -rf source/js/fitvids.js                                 && \
 rm -rf source/js/init.js                                    && \
 mv source/js/jquery-2.0.0b2.js source/js/jquery.js          && \
+mkdir source/images/ui                                      && \
 mkdir source/js/plugins                                     && \
 > source/js/script.js
 
