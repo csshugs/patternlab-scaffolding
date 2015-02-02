@@ -5,12 +5,12 @@
   "authors": [
     "Dennis Heibült <dennis@csshugs.com>"
   ],
-  "description": "Combining pattern lab with grunt and inuitcss",
+  "description": "Combining Pattern Lab with Grunt and inuitcss",
   "main": "Gruntfile.js",
   "keywords": [
     "grunt.js",
-    "inuit.css",
-    "PatternLab",
+    "inuitcss",
+    "patternlab",
     "automation",
     "workflow",
     "sass"
