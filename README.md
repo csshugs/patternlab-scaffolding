@@ -109,16 +109,16 @@ As long as you have `grunt` running, every generation of code runs automatically
 
 #### Directory Pattern
 
-###### css
+##### css
 As css pattern [css-scaffold](https://github.com/csshugs/css-scaffold) is used. On how to handle it, [have a further read](https://github.com/inuitcss/getting-started) or [watch this wonderful talk](https://www.youtube.com/watch?v=1OKZOV-iLj4&hd=1).
 
-###### js
+##### js
 If you have some JavaScript to add, add it to `source/js/script.js`. If you have any JavaScript or jQuery Plugins, throw the source files into `source/js/plugins/`. All JavaScript files in this directory get concatenated to `public/js/plugins.js`. Reference this and your `script.js` in your `source/_patterns/00-atoms/00-meta/_01-foot.mustache` pattern.
 
-###### images
+##### images
 All images in `source/images/` are content images, hence just required within the Pattern Lab environment so they won't be copied to your `cms` directory. Except `source/images/ui/`. This directory is dedicated for css background-images, sprites etc. and will be copied into `cms`, so that these are available in production.
 
-###### fonts
+##### fonts
 If you have an icon font or a self-hosted webfont, the font files are going into `source/fonts/`.
 
 ### Settings
@@ -142,7 +142,11 @@ pageFollowNav  = "false"
 - [Node.js](http://nodejs.org/).
 - [Grunt](http://gruntjs.com/).
 - [Bower](http://bower.io/).
-- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0: `$ gem install sass-globbing -v 1.1.0`. Version 1.1.1 may not work properly.
+- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0: 
+```
+$ gem install sass-globbing -v 1.1.0
+```
+Version 1.1.1 may not work properly.
 - Thus you'll need ruby [version 1.9.3](http://rubyinstaller.org/downloads/).
 
 
