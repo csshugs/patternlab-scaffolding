@@ -142,11 +142,10 @@ pageFollowNav  = "false"
 - [Node.js](http://nodejs.org/).
 - [Grunt](http://gruntjs.com/).
 - [Bower](http://bower.io/).
-- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0: 
+- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 (version 1.1.1 may not work properly): 
 ```
 $ gem install sass-globbing -v 1.1.0
 ```
-Version 1.1.1 may not work properly.
 - Thus you'll need ruby [version 1.9.3](http://rubyinstaller.org/downloads/).
 
 
