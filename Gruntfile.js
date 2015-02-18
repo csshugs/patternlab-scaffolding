@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
     require('time-grunt')(grunt);
-
+    require('jit-grunt')(grunt);
 
     var globalConfig = {
         // Adjust this value to the assets destination path of your cms
