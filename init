@@ -1,0 +1,32 @@
+#!/bin/sh
+
+echo "Initializing project"
+
+git clone https://github.com/pattern-lab/patternlab-php.git && \
+mv patternlab-php/config/ .                                 && \
+mv patternlab-php/core/ .                                   && \
+mv patternlab-php/extras/ .                                 && \
+mv patternlab-php/public/ .                                 && \
+mv patternlab-php/LICENSE .                                 && \
+rm -rf patternlab-php                                       && \
+rm -rf source/css                                           && \
+php core/builder.php -g                                     && \
+rm -rf source/css                                           && \
+git submodule init                                          && \
+git submodule update                                        && \
+cd source/css/                                              && \
+git pull origin master                                      && \
+cd ../../                                                   && \
+rm -rf source/css/.git                                      && \
+rm -rf .git/                                                && \
+rm -rf .gitmodules                                          && \
+rm -rf source/js/fitvids.js                                 && \
+rm -rf source/js/init.js                                    && \
+mv source/js/jquery-2.0.0b2.js source/js/jquery.js          && \
+mkdir source/images/ui                                      && \
+mkdir source/js/plugins                                     && \
+> source/js/script.js
+
+echo "Pattern Lab is now beautifully scaffolded"
+
+rm init
