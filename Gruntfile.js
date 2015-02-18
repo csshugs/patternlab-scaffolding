@@ -50,6 +50,20 @@ module.exports = function(grunt) {
             }
         },
 
+        // BrowserSync
+        browserSync: {
+            bsFiles: {
+                src : 'public/css/*.css'
+            },
+            options: {
+                watchTask: true,
+                port: 8000,
+                server: {
+                    baseDir: "./public/"
+                }
+            }
+        },
+
         // Watch
         watch: {
             scss: {
@@ -239,6 +253,7 @@ module.exports = function(grunt) {
 
 
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -274,6 +289,19 @@ module.exports = function(grunt) {
         'sass',
         'connect:server',
         'shell:patternlab_watch'
+    ]);
+
+    // BorwserSync task.
+    grunt.registerTask('sync', [
+        'shell:patternlab_generate',
+        'clean',
+        'concat',
+        'copy',
+        'uglify',
+        'shell:patternlab_patternsonly',
+        'concurrent',
+        'browserSync',
+        'watch'
     ]);
 
 
