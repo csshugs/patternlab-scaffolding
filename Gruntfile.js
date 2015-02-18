@@ -21,6 +21,10 @@ module.exports = function(grunt) {
             // Regenerates whole public dir.
             patternlab_generate: {
                 command: 'php core/builder.php -g'
+            },
+            // Starts the pattern lab watcher.
+            patternlab_watch: {
+                command: 'php core/builder.php -wrp'
             }
         },
 
@@ -46,15 +50,29 @@ module.exports = function(grunt) {
             }
         },
 
+        // BrowserSync
+        browserSync: {
+            bsFiles: {
+                src : 'public/css/*.css'
+            },
+            options: {
+                watchTask: true,
+                port: 8000,
+                server: {
+                    baseDir: "./public/"
+                }
+            }
+        },
+
         // Watch
         watch: {
             scss: {
                 files: ['source/css/**/{.*,*,*/*}'],
-                tasks: 'scss'
+                tasks: ['sass', 'autoprefixer']
             },
             js: {
                 files: ['source/js/**/{.*,*,*/*}'],
-                tasks: 'js'
+                tasks: ['copy:js_public', 'concat', 'uglify']
             },
             img: {
                 files: ['source/images/**/{.*,*,*/*}'],
@@ -130,6 +148,9 @@ module.exports = function(grunt) {
                     'ie 9',
                     'ie 10'
                 ]
+            },
+            dev: {
+                src: 'public/css/style.css'
             },
             cms: {
                 src: '<%= globalConfig.cms %>/css/style.css'
@@ -229,7 +250,9 @@ module.exports = function(grunt) {
 
     });
 
+
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -251,6 +274,7 @@ module.exports = function(grunt) {
         'uglify'
     ]);
 
+    // Default task.
     grunt.registerTask('default', [
         'shell:patternlab_generate',
         'clean',
@@ -260,6 +284,31 @@ module.exports = function(grunt) {
         'shell:patternlab_patternsonly',
         'concurrent',
         'connect:server',
+        'watch'
+    ]);
+
+    // Task for working with the patterns (reloads the site quicker).
+    grunt.registerTask('patterns', [
+        'shell:patternlab_generate',
+        'clean',
+        'concat',
+        'copy',
+        'uglify',
+        'sass',
+        'connect:server',
+        'shell:patternlab_watch'
+    ]);
+
+    // BorwserSync task.
+    grunt.registerTask('sync', [
+        'shell:patternlab_generate',
+        'clean',
+        'concat',
+        'copy',
+        'uglify',
+        'shell:patternlab_patternsonly',
+        'concurrent',
+        'browserSync',
         'watch'
     ]);
 
