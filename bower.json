@@ -18,7 +18,7 @@
   "dependencies": {
     "jquery": "1.10"
   },
-  "dev-dependencies": {
+  "devDependencies": {
     "inuit-block": "0.1.2",
     "inuit-box": "0.4.4",
     "inuit-box-sizing": "0.2.0",
