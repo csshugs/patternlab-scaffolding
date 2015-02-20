@@ -103,7 +103,15 @@ Before you continue reading, make sure you've [made yourself familiar with Patte
 
 ### Workflow
 
-Open two command prompts. In the first run `$ php core/builder.php -wrp`, in the second run `$ grunt`.
+Open two command prompts. In the one cmd run: 
+```
+$ php core/builder.php -wrp
+```
+
+in the other run: 
+```
+$ grunt
+```
 
 As long as you have those two commands running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
 
