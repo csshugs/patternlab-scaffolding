@@ -103,7 +103,9 @@ Before you continue reading, make sure you've [made yourself familiar with Patte
 
 ### Workflow
 
-As long as you have `grunt` running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
+Open two command prompts. In the first run `$ php core/builder.php -wrp`, in the second run `$ grunt`.
+
+As long as you have those two commands running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
 
 
 
@@ -125,13 +127,6 @@ If you have an icon font or a self-hosted webfont, the font files are going into
 
 ##### cms
 If you are working with a content management system, you'll find a `cms` variable at the top of the `Gruntfile.js`. Modify this variable, so that your assets (css, js, images and fonts) get copied to the system autmatically.
-
-##### Pattern Lab config
-In `config.ini` disable Pattern Lab's reload and page follow services to prevent console errors in the browser:
-```
-autoReloadNav  = "false"
-pageFollowNav  = "false"
-```
 
 
 

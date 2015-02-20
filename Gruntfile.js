@@ -12,22 +12,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         globalConfig: globalConfig,
 
-        // Shell
-        shell: {
-            // Generates only the patterns.
-            patternlab_patternsonly: {
-                command: 'php core/builder.php -gp'
-            },
-            // Regenerates whole public dir.
-            patternlab_generate: {
-                command: 'php core/builder.php -g'
-            },
-            // Starts the pattern lab watcher.
-            patternlab_watch: {
-                command: 'php core/builder.php -wrp'
-            }
-        },
-
         // Connect
         connect: {
             options: {
@@ -82,25 +66,12 @@ module.exports = function(grunt) {
                 files: ['source/fonts/**/{.*,*,*/*}'],
                 tasks: ['copy:fonts_public', 'copy:fonts_cms']
             },
-            html: {
-                files: [
-                    'source/_patterns/**/*.mustache',
-                    'source/**/*.json'
-                ],
-                tasks: [
-                    'shell:patternlab_patternsonly'
-                ],
-                options: {
-                    spawn: false
-                }
-            },
             livereload: {
                 options: {
                     livereload: 35729
                 },
                 files: [
                     'public/css/style.css',
-                    'public/patterns/**/*',
                     'public/js/**/*'
                 ]
             }
@@ -144,7 +115,6 @@ module.exports = function(grunt) {
             options: {
                 browsers: [
                     'last 3 version',
-                    'ie 8',
                     'ie 9',
                     'ie 10'
                 ]
@@ -262,43 +232,26 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-shell');
 
 
 
     // Default task.
     grunt.registerTask('default', [
-        'shell:patternlab_generate',
         'clean',
         'concat',
         'copy',
         'uglify',
-        'shell:patternlab_patternsonly',
         'concurrent',
         'connect:server',
         'watch'
     ]);
 
-    // Task for working with the patterns (reloads the site quicker).
-    grunt.registerTask('patterns', [
-        'shell:patternlab_generate',
-        'clean',
-        'concat',
-        'copy',
-        'uglify',
-        'sass',
-        'connect:server',
-        'shell:patternlab_watch'
-    ]);
-
     // BorwserSync task.
     grunt.registerTask('sync', [
-        'shell:patternlab_generate',
         'clean',
         'concat',
         'copy',
         'uglify',
-        'shell:patternlab_patternsonly',
         'concurrent',
         'browserSync',
         'watch'
