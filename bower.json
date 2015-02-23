@@ -16,6 +16,9 @@
     "sass"
   ],
   "dependencies": {
+    "jquery": "1.10"
+  },
+  "devDependencies": {
     "inuit-block": "0.1.2",
     "inuit-box": "0.4.4",
     "inuit-box-sizing": "0.2.0",
@@ -65,7 +68,6 @@
     "inuit-text-input": "0.1.2",
     "inuit-widths": "0.3.2",
     "inuit-widths-responsive": "0.1.5",
-    "jquery": "1.10",
     "modernizr": "~2.8.3"
   }
 }

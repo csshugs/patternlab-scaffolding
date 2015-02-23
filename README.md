@@ -17,7 +17,12 @@ Then you'll need to run the init script:
 $ init
 ```
 
-Pattern Lab is now scaffolded and you can start Grunt:
+Pattern Lab is now scaffolded and you can start Pattern Lab
+```
+$ php core/builder.php -wrp
+```
+
+and Grunt
 ```
 $ grunt
 ```
@@ -37,7 +42,7 @@ Next [Download Pattern Lab](https://github.com/pattern-lab/patternlab-php/archiv
 
 Go to the `source` directory and delete the `css` folder.
 
-In root run: 
+In root run:
 ```
 $ php core/builder.php -g
 ```
@@ -45,7 +50,7 @@ $ php core/builder.php -g
 Delete the `css` folder once again.
 
 Then:
-``` 
+```
 $ git submodule init && git submodule update
 ```
 
@@ -103,7 +108,17 @@ Before you continue reading, make sure you've [made yourself familiar with Patte
 
 ### Workflow
 
-As long as you have `grunt` running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
+Open two command prompts. In the one cmd run:
+```
+$ php core/builder.php -wrp
+```
+
+in the other run:
+```
+$ grunt
+```
+
+As long as you have those two commands running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
 
 
 
@@ -126,13 +141,6 @@ If you have an icon font or a self-hosted webfont, the font files are going into
 ##### cms
 If you are working with a content management system, you'll find a `cms` variable at the top of the `Gruntfile.js`. Modify this variable, so that your assets (css, js, images and fonts) get copied to the system autmatically.
 
-##### Pattern Lab config
-In `config.ini` disable Pattern Lab's reload and page follow services to prevent console errors in the browser:
-```
-autoReloadNav  = "false"
-pageFollowNav  = "false"
-```
-
 
 
 
@@ -142,7 +150,7 @@ pageFollowNav  = "false"
 - [Node.js](http://nodejs.org/).
 - [Grunt](http://gruntjs.com/).
 - [Bower](http://bower.io/).
-- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 (version 1.1.1 may not work properly): 
+- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 (version 1.1.1 may not work properly):
 ```
 $ gem install sass-globbing -v 1.1.0
 ```
