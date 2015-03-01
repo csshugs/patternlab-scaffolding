@@ -1,3 +1,37 @@
+## Requirements
+- [PHP 5.3+](http://windows.php.net/download/#php-5.5).
+- [Node.js](http://nodejs.org/).
+- [Grunt](http://gruntjs.com/).
+- [Bower](http://bower.io/).
+- [Ruby 1.9.3](http://rubyinstaller.org/downloads/)
+
+### Sass (Ruby Dependencies)
+Stylesheet compilation requires Sass and additional Sass-Plugins. If you got them installed, skip this part
+
+- [Sass](http://sass-lang.com/install)
+- [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 ([version 1.1.1 may not work properly](https://github.com/chriseppstein/sass-globbing/issues/19)):
+
+There are different ways to install them
+
+##### Bundler
+To install Ruby dependencies via [Bundler](http://bundler.io/) 
+```
+$ bundle install
+```
+
+##### Manual
+```
+$ gem install sass
+```
+
+```
+$ gem install sass-globbing -v 1.1.0
+```
+
+
+
+
+
 ## Installation
 
 #### Automatic
@@ -140,22 +174,6 @@ If you have an icon font or a self-hosted webfont, the font files are going into
 
 ##### cms
 If you are working with a content management system, you'll find a `cms` variable at the top of the `Gruntfile.js`. Modify this variable, so that your assets (css, js, images and fonts) get copied to the system autmatically.
-
-
-
-
-
-## Requirements
-- [PHP 5.3+](http://windows.php.net/download/#php-5.5).
-- [Node.js](http://nodejs.org/).
-- [Grunt](http://gruntjs.com/).
-- [Bower](http://bower.io/).
-- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 (version 1.1.1 may not work properly):
-```
-$ gem install sass-globbing -v 1.1.0
-```
-- Thus you'll need ruby [version 1.9.3](http://rubyinstaller.org/downloads/).
-
 
 
 
