@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
-
+    require('time-grunt')(grunt);
+    require('jit-grunt')(grunt);
 
     var globalConfig = {
         // Adjust this value to the assets destination path of your cms
@@ -17,6 +18,16 @@ module.exports = function(grunt) {
     });
 
 
+    grunt.registerTask('scss', [
+        'sass',
+        'autoprefixer'
+    ]);
+
+    grunt.registerTask('js', [
+        'copy:js_public',
+        'concat',
+        'uglify'
+    ]);
 
     // Default task.
     grunt.registerTask('default', [
@@ -39,7 +50,5 @@ module.exports = function(grunt) {
         'browserSync',
         'watch'
     ]);
-
-
 
 };
