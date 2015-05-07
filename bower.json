@@ -41,7 +41,7 @@
     "inuit-normalize": "~3.0.3",
     "inuit-pack": "~0.1.1",
     "inuit-page": "~0.2.1",
-    "inuit-page-wrap": "~0.2.0",
+    "inuit-page-wrap": "~0.3.0",
     "inuit-paragraphs": "~0.1.4",
     "inuit-print": "*",
     "inuit-pull": "~0.2.0",
