@@ -3,6 +3,10 @@ module.exports = function(grunt) {
 
 
     var globalConfig = {
+        source: {
+            js: 'source/js',
+            css: 'source/css'
+        },
         // Adjust this value to the assets destination path of your cms
         cms: 'cms'
     };
@@ -24,6 +28,7 @@ module.exports = function(grunt) {
         'concat',
         'copy',
         'uglify',
+        'sass_globbing',
         'concurrent',
         'connect:server',
         'watch'
@@ -35,6 +40,7 @@ module.exports = function(grunt) {
         'concat',
         'copy',
         'uglify',
+        'sass_globbing',
         'concurrent',
         'browserSync',
         'watch'
