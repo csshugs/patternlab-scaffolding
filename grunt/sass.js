@@ -1,13 +1,14 @@
 module.exports = {
     options: {
-        require: 'sass-globbing',
-        loadPath: 'bower_components',
-        sourcemap: 'none'
+        includePaths: [
+            'bower_components/'
+        ],
+        sourcemap: false
     },
     dev: {
         options: {
-            style: 'expanded',
-            lineNumbers: true
+            outputStyle: 'nested',
+            sourceComments: true
         },
         files: {
             'public/css/style.css': 'source/css/style.scss'
@@ -15,7 +16,7 @@ module.exports = {
     },
     cms: {
         options: {
-            style: 'compressed'
+            outputStyle: 'compressed'
         },
         files: {
             '<%= globalConfig.cms %>/css/style.css': 'source/css/style.scss'
