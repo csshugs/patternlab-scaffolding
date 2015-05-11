@@ -1,3 +1,11 @@
+# Pattern Lab scaffolding
+
+Before you continue reading, make sure you've [made yourself familiar with Pattern Lab](http://patternlab.io/docs/index.html).
+
+
+
+
+
 ## Installation
 
 #### Automatic
@@ -9,7 +17,9 @@ $ git clone git@github.com:csshugs/patternlab-scaffolding.git
 
 Next, get yourself the necessary dependencies:
 ```
-$ npm install && bower install
+$ npm install 
+
+$ bower install
 ```
 
 Then you'll need to run the init script:
@@ -17,17 +27,17 @@ Then you'll need to run the init script:
 $ init
 ```
 
-Pattern Lab is now scaffolded and you can start Pattern Lab
+Pattern Lab is now scaffolded and you can start the Pattern Lab watcher with:
 ```
 $ php core/builder.php -wrp
 ```
 
-and Grunt
+...and the grunt watcher with:
 ```
-$ grunt
+$ grunt dev
 ```
 
-and go to [http://localhost:8000](http://localhost:8000).
+...and go to [http://localhost:8000](http://localhost:8000).
 
 
 
@@ -38,16 +48,7 @@ Clone this project:
 $ git clone git@github.com:csshugs/patternlab-scaffolding.git
 ```
 
-Next [Download Pattern Lab](https://github.com/pattern-lab/patternlab-php/archive/master.zip) and grab everthing from the Pattern Lab ZIP except the `source` folder, the `.gitignore` and `README.md` and throw it into the root of your project.
-
-Go to the `source` directory and delete the `css` folder.
-
-In root run:
-```
-$ php core/builder.php -g
-```
-
-Delete the `css` folder once again.
+Next [Download Pattern Lab](https://github.com/pattern-lab/patternlab-php/archive/master.zip) and grab everthing from the Pattern Lab Zip except the `source` folder, the `.gitignore` and `README.md` and throw it into the root of your project.
 
 Then:
 ```
@@ -56,7 +57,9 @@ $ git submodule init && git submodule update
 
 Get yourself the necessary dependencies:
 ```
-$ npm install && bower install
+$ npm install 
+
+$bower install
 ```
 
 Remove unnecessary git files and folders:
@@ -68,21 +71,13 @@ $ rm -rf .git/
 $ rm -rf .gitmodules
 ```
 
-Remove unnecessary js files and rename jquery:
+Remove unnecessary js files:
 ```
-$ rm -rf source/js/fitvids.js
-
-$ rm -rf source/js/init.js
-
-$ mv source/js/jquery-2.0.0b2.js source/js/jquery.js
+$ rm -rf source/js/
 ```
 
-Create necessary folders and empty `script.js`:
+Create empty `script.js`:
 ```
-$ mkdir source/images/ui
-
-$ mkdir source/js/plugins
-
 $ > source/js/script.js
 ```
 
@@ -91,55 +86,83 @@ Finally remove the `init` script:
 $ rm init
 ```
 
-Pattern Lab is now scaffolded and you can start Grunt:
-```
-$ grunt
-```
-
-and go to [http://localhost:8000](http://localhost:8000).
-
-
-
-
-
-## Getting Started
-
-Before you continue reading, make sure you've [made yourself familiar with Pattern Lab](http://patternlab.io/docs/index.html).
-
-### Workflow
-
-Open two command prompts. In the one cmd run:
+Pattern Lab is now scaffolded and you can start the Pattern Lab watcher with:
 ```
 $ php core/builder.php -wrp
 ```
 
-in the other run:
+...and the grunt watcher with:
 ```
-$ grunt
+$ grunt dev
+```
+
+...and go to [http://localhost:8000](http://localhost:8000).
+
+
+
+
+
+## Workflow
+
+Open two command prompts. Run:
+```
+$ php core/builder.php -wrp
+```
+
+...and:
+```
+$ grunt dev
 ```
 
 As long as you have those two commands running, every generation of code runs automatically. The working directory is `source/`. Don't ever edit any files in `public/` or move files manually from `source/` to `public/`.
 
 
 
-#### Directory Pattern
+## Directory Pattern
 
-##### css
-As css pattern [css-scaffold](https://github.com/csshugs/css-scaffold) is used. On how to handle it, [have a further read](https://github.com/inuitcss/getting-started) or [watch this wonderful talk](https://www.youtube.com/watch?v=1OKZOV-iLj4&hd=1).
+### css
+For the css file pattern [css-scaffold](https://github.com/csshugs/css-scaffold) is used. On how to handle it, [have a further read](https://github.com/inuitcss/getting-started#setting-up-a-project) or [watch this wonderful talk](https://www.youtube.com/watch?v=1OKZOV-iLj4&hd=1).
 
-##### js
-If you have some JavaScript to add, add it to `source/js/script.js`. If you have any JavaScript or jQuery Plugins, throw the source files into `source/js/plugins/`. All JavaScript files in this directory get concatenated to `public/js/plugins.js`. Reference this and your `script.js` in your `source/_patterns/00-atoms/00-meta/_01-foot.mustache` pattern.
+### js
 
-##### images
-All images in `source/images/` are content images, hence just required within the Pattern Lab environment so they won't be copied to your `cms` directory. Except `source/images/ui/`. This directory is dedicated for css background-images, sprites etc. and will be copied into `cms`, so that these are available in production.
+#### Custom Scripts
+Place custom scripts inside `source/js/`.
+Reference these in the `source/_patterns/00-atoms/00-meta/_01-foot.mustache` pattern.
 
-##### fonts
+
+#### 3rd Party Scripts (libs, plugins, etc)
+3rd party scripts should be installed via [bower](http://bower.io/). Reference the necessary scripts in the src-list in `grunt/bowercopy.js` (either libs or plugins). These scripts are automatically copied into `source/js/vendor/` (via [grunt-bowercopy](https://github.com/curist/grunt-bower)) and referenced via [grunt-injector](https://github.com/klei/grunt-injector).
+
+In order to get this working, you got to set the following html-comments in `source/_patterns/00-atoms/00-meta/_01-foot.mustache` just above the closing `</body>`-tag
+```html
+    <!-- injector:js -->
+    <!-- endinjector -->
+
+    </body>
+</html>
+```
+
+In addition, you must uncomment the following two lines in `Gruntfile.js` as soon as you have bower components you wish to add to the project:
+```js
+grunt.registerTask('bowerInject', [
+    'clean:jsVendor',
+    // 'bowercopy',
+    // 'injector'
+]);
+```
+
+After installing a new script via bower, run 
+```
+$ grunt bowerInject
+```
+
+### fonts
 If you have an icon font or a self-hosted webfont, the font files are going into `source/fonts/`.
 
-### Settings
+## Settings
 
-##### cms
-If you are working with a content management system, you'll find a `cms` variable at the top of the `Gruntfile.js`. Modify this variable, so that your assets (css, js, images and fonts) get copied to the system autmatically.
+### cms
+If you are working with a content management system, you'll find `cms` variables at the top of `Gruntfile.js`. Modify these variables, so that your assets (css, js, images and fonts) are copied to the system autmatically.
 
 
 
@@ -150,11 +173,6 @@ If you are working with a content management system, you'll find a `cms` variabl
 - [Node.js](http://nodejs.org/).
 - [Grunt](http://gruntjs.com/).
 - [Bower](http://bower.io/).
-- Install [sass-globbing](https://github.com/chriseppstein/sass-globbing) version 1.1.0 (version 1.1.1 may not work properly):
-```
-$ gem install sass-globbing -v 1.1.0
-```
-- Thus you'll need ruby [version 1.9.3](http://rubyinstaller.org/downloads/).
 
 
 

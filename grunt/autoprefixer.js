@@ -7,9 +7,9 @@ module.exports = {
         ]
     },
     dev: {
-        src: 'public/css/style.css'
+        src: '<%= globalConfig.public.stylesheet %>'
     },
     cms: {
-        src: '<%= globalConfig.cms %>/css/style.css'
+        src: '<%= globalConfig.cms.stylesheet %>'
     }
 };

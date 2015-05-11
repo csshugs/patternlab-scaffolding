@@ -2,12 +2,11 @@ module.exports = {
     options: {
         separator: ' ',
     },
-    plugins: {
-        src: ['source/js/plugins/*.js'],
-        dest: 'public/js/plugins.js',
-    },
-    cms: {
-        src: ['source/js/plugins/*.js', 'source/js/script.js'],
-        dest: '<%= globalConfig.cms %>/js/script.js',
+    jsVendor: {
+        src: [
+            '<%= globalConfig.source.js %>/vendor/libs/*.js',
+            '<%= globalConfig.source.js %>/vendor/plugins/*.js'
+        ],
+        dest: '<%= globalConfig.cms.js %>/vendor.min.js'
     }
 };
