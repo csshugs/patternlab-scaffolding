@@ -20,11 +20,8 @@ cd ../../                                                   && \
 rm -rf source/css/.git                                      && \
 rm -rf .git/                                                && \
 rm -rf .gitmodules                                          && \
-rm -rf source/js/fitvids.js                                 && \
-rm -rf source/js/init.js                                    && \
-mv source/js/jquery-2.0.0b2.js source/js/jquery.js          && \
-mkdir source/images/ui                                      && \
-mkdir source/js/plugins                                     && \
+rm -rf source/js/                                           && \
+mkdir source/js/                                            && \
 > source/js/script.js
 
 echo "Pattern Lab is now beautifully scaffolded"

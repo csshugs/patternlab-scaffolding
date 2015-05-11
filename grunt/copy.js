@@ -1,52 +1,61 @@
 module.exports = {
-    img_public: {
+    patternlab: {
         files: [
             {
                 expand: true,
-                cwd: 'source/images/',
+                cwd: 'core/styleguide/',
                 src: ['./**/*.*'],
-                dest: 'public/images/'
+                dest: '<%= globalConfig.public.public %>/styleguide/'
             }
         ]
     },
-    // In the cms you don't want to have dummy images.
-    img_cms: {
+    img: {
         files: [
             {
                 expand: true,
-                cwd: 'source/images/ui/',
+                cwd: '<%= globalConfig.source.img %>/',
                 src: ['./**/*.*'],
-                dest: '<%= globalConfig.cms %>/images/ui/'
+                dest: '<%= globalConfig.public.img %>/'
             }
         ]
     },
-    fonts_public: {
+    fontsPublic: {
         files: [
             {
                 expand: true,
-                cwd: 'source/fonts/',
+                cwd: '<%= globalConfig.source.fonts %>/',
                 src: ['./**/*.*'],
-                dest: 'public/fonts/'
+                dest: '<%= globalConfig.public.fonts %>/'
             }
         ]
     },
-    fonts_cms: {
+    fontsCms: {
         files: [
             {
                 expand: true,
-                cwd: 'source/fonts/',
+                cwd: '<%= globalConfig.source.fonts %>/',
                 src: ['./**/*.*'],
-                dest: '<%= globalConfig.cms %>/fonts/'
+                dest: '<%= globalConfig.cms.fonts %>/'
             }
         ]
     },
-    js_public: {
+    jsPublic: {
         files: [
             {
                 expand: true,
-                cwd: 'source/js/',
-                src: ['script.js'],
-                dest: 'public/js/'
+                cwd: '<%= globalConfig.source.js %>/',
+                src: ['./**/*.*'],
+                dest: '<%= globalConfig.public.js %>/'
+            }
+        ]
+    },
+    jsCms: {
+        files: [
+            {
+                expand: true,
+                cwd: '<%= globalConfig.source.js %>/',
+                src: ['*.js'],
+                dest: '<%= globalConfig.cms.js %>/'
             }
         ]
     }

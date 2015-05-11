@@ -1,27 +1,27 @@
 module.exports = {
     scss: {
-        files: ['source/css/**/{.*,*,*/*}'],
-        tasks: ['sass_globbing', 'sass', 'autoprefixer']
+        files: ['<%= globalConfig.source.css %>/**/{.*,*,*/*}'],
+        tasks: ['sass_globbing', 'sass']
     },
     js: {
-        files: ['source/js/**/{.*,*,*/*}'],
-        tasks: ['copy:js_public', 'concat', 'uglify']
+        files: ['<%= globalConfig.source.js %>/**/{.*,*,*/*}'],
+        tasks: ['copy:jsPublic', 'copy:jsCms']
     },
     img: {
-        files: ['source/images/**/{.*,*,*/*}'],
-        tasks: ['copy:img_public', 'copy:img_cms']
+        files: ['<%= globalConfig.source.img %>/**/{.*,*,*/*}'],
+        tasks: ['copy:img']
     },
     fonts: {
-        files: ['source/fonts/**/{.*,*,*/*}'],
-        tasks: ['copy:fonts_public', 'copy:fonts_cms']
+        files: ['<%= globalConfig.source.fonts %>/**/{.*,*,*/*}'],
+        tasks: ['copy:fontsPublic', 'copy:fontsCms']
     },
     livereload: {
         options: {
             livereload: 35729
         },
         files: [
-            'public/css/style.css',
-            'public/js/**/*'
+            '<%= globalConfig.public.css %>/*.css',
+            '<%= globalConfig.public.js %>/**/*'
         ]
     }
 };

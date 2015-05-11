@@ -1,10 +1,12 @@
 module.exports = {
-    cms: {
+    public: {
         src: [
-            '<%= globalConfig.cms %>/css/',
-            '<%= globalConfig.cms %>/images/',
-            '<%= globalConfig.cms %>/js/',
-            '<%= globalConfig.cms %>/fonts/'
+            '<%= globalConfig.public.public %>/'
+        ]
+    },
+    jsVendor: {
+        src: [
+            '<%= globalConfig.source.js %>/vendor/'
         ]
     }
 };

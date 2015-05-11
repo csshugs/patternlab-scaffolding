@@ -1,12 +1,15 @@
 module.exports = {
     bsFiles: {
-        src : 'public/css/*.css'
+        src : '<%= globalConfig.public.css %>/*.css'
     },
     options: {
         watchTask: true,
         port: 8000,
+        ui: {
+            port: 8001
+        },
         server: {
-            baseDir: "./public/"
+            baseDir: "./<%= globalConfig.public.public %>/"
         }
     }
 };

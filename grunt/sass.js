@@ -11,7 +11,7 @@ module.exports = {
             sourceComments: true
         },
         files: {
-            'public/css/style.css': 'source/css/style.scss'
+            '<%= globalConfig.public.stylesheet %>': '<%= globalConfig.source.stylesheet %>'
         }
     },
     cms: {
@@ -19,7 +19,7 @@ module.exports = {
             outputStyle: 'compressed'
         },
         files: {
-            '<%= globalConfig.cms %>/css/style.css': 'source/css/style.scss'
+            '<%= globalConfig.cms.stylesheet %>': '<%= globalConfig.source.stylesheet %>'
         }
     }
 };

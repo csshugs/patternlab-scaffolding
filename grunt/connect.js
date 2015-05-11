@@ -8,13 +8,13 @@ module.exports = {
         options: {
             open: true,
             base: [
-                './public'
+                './<%= globalConfig.public.public %>'
             ]
         }
     },
     server: {
         options: {
-            base: './public'
+            base: './<%= globalConfig.public.public %>'
         }
     }
 };
