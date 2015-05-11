@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 
     var globalConfig = {
 
+        // Reference the source paths.
         source: {
             source: 'source',
             css: 'source/css',
@@ -12,6 +13,7 @@ module.exports = function(grunt) {
             fonts: 'source/fonts',
             img: 'source/images'
         },
+        // The Pattern Lab destination directory.
         public: {
             public: 'public',
             css: 'public/css',
@@ -80,12 +82,14 @@ module.exports = function(grunt) {
 
 
 
+    // Bower components injection.
     grunt.registerTask('bowerInject', [
         'clean:jsVendor',
         // 'bowercopy',
         // 'injector'
     ]);
 
+    // Uglify and concat vendor files.
     grunt.registerTask('jsVendor', [
         'concat:jsVendor',
         'uglify:jsVendor'
