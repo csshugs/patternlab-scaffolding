@@ -17,14 +17,14 @@ $ git clone git@github.com:csshugs/patternlab-scaffolding.git
 
 Next, get yourself the necessary dependencies:
 ```
-$ npm install 
+$ npm install
 
 $ bower install
 ```
 
 Then you'll need to run the init script:
 ```
-$ init
+$ sh init
 ```
 
 Pattern Lab is now scaffolded and you can start the Pattern Lab watcher with:
@@ -57,7 +57,7 @@ $ git submodule init && git submodule update
 
 Get yourself the necessary dependencies:
 ```
-$ npm install 
+$ npm install
 
 $bower install
 ```
@@ -151,7 +151,7 @@ grunt.registerTask('bowerInject', [
 ]);
 ```
 
-After installing a new script via bower, run 
+After installing a new script via bower, run
 ```
 $ grunt bowerInject
 ```
