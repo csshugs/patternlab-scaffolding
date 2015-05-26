@@ -7,7 +7,6 @@ mv patternlab-php/config/ .                                 && \
 mv patternlab-php/core/ .                                   && \
 mv patternlab-php/extras/ .                                 && \
 mv patternlab-php/public/ .                                 && \
-mv patternlab-php/LICENSE .                                 && \
 rm -rf patternlab-php                                       && \
 rm -rf source/css                                           && \
 php core/builder.php -g                                     && \
