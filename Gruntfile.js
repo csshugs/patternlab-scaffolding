@@ -95,8 +95,8 @@ module.exports = function(grunt) {
     // Bower components injection.
     grunt.registerTask('bowerInject', [
         'clean:jsVendor',
-        // 'bowercopy',
-        // 'injector'
+        'bowercopy',
+        'injector'
     ]);
 
     // Uglify and concat vendor files.
