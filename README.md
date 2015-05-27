@@ -23,4 +23,4 @@ Before you continue reading, make sure you've [made yourself familiar with Patte
 
 #### fatal: Not a git repository
 
-It is important to **clone** this project. Downloading the ZIP won't work! Please follow [these instructions](wiki/First-time-setup) thoroughly.
+It is important to **clone** this project. Downloading the ZIP won't work! Please follow [these instructions](https://github.com/csshugs/patternlab-scaffolding/wiki/First-time-setup) thoroughly.
