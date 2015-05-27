@@ -1,6 +1,6 @@
 {
   "name": "patternlab-scaffolding",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "https://github.com/csshugs/patternlab-scaffolding",
   "authors": [
     "Dennis Heibült <dennis@csshugs.com>"
@@ -68,5 +68,8 @@
     "inuit-tools-widths": "~0.1.4",
     "inuit-widths": "~0.4.2",
     "inuit-widths-responsive": "~0.2.2"
+  },
+  "dependencies": {
+    "jquery": "~2.1.4"
   }
 }

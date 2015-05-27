@@ -40,7 +40,11 @@ module.exports = function(grunt) {
 
 
     require('load-grunt-config')(grunt, {
-        jitGrunt: {},
+        jitGrunt: {
+            staticMappings: {
+                scsslint: 'grunt-scss-lint'
+            }
+        },
         config: {
             globalConfig: globalConfig
         }
@@ -63,7 +67,8 @@ module.exports = function(grunt) {
         'shell:patternlab-patterns',
         'sass_globbing',
         'concurrent',
-        'autoprefixer'
+        'autoprefixer',
+        'scsslint'
     ]);
 
     // Pattern Lab dev task.
@@ -80,13 +85,18 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
+    // Linting task.
+    grunt.registerTask('lint', [
+        'scsslint'
+    ]);
+
 
 
     // Bower components injection.
     grunt.registerTask('bowerInject', [
         'clean:jsVendor',
-        // 'bowercopy',
-        // 'injector'
+        'bowercopy',
+        'injector'
     ]);
 
     // Uglify and concat vendor files.
