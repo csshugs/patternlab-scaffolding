@@ -17,7 +17,7 @@ $ git clone git@github.com:csshugs/patternlab-scaffolding.git
 
 Next, get yourself the necessary dependencies:
 ```
-$ npm install 
+$ npm install
 
 $ bower install
 ```
@@ -57,7 +57,7 @@ $ git submodule init && git submodule update
 
 Get yourself the necessary dependencies:
 ```
-$ npm install 
+$ npm install
 
 $bower install
 ```
@@ -151,7 +151,7 @@ grunt.registerTask('bowerInject', [
 ]);
 ```
 
-After installing a new script via bower, run 
+After installing a new script via bower, run
 ```
 $ grunt bowerInject
 ```
@@ -173,6 +173,7 @@ If you are working with a content management system, you'll find `cms` variables
 - [Node.js](http://nodejs.org/).
 - [Grunt](http://gruntjs.com/).
 - [Bower](http://bower.io/).
+- [Git](http://git-scm.com/).
 
 
 
