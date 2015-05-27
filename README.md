@@ -1,8 +1,22 @@
 # Pattern Lab scaffolding
 
-Before you continue reading, make sure you've [made yourself familiar with Pattern Lab](http://patternlab.io/docs/index.html).
+Before you go on, make sure you've [made yourself familiar with Pattern Lab](http://patternlab.io/docs/index.html).
 
 ------
+
+## Setup
+
+When you are starting a brand new project with patternlab-scaffolding, follow the instruction for the [First time setup](https://github.com/csshugs/patternlab-scaffolding/wiki/First-time-setup).
+
+When the project already exists and you want to get it running on your local machine, have a look at [Getting started](https://github.com/csshugs/patternlab-scaffolding/wiki/Getting-started).
+
+
+
+
+
+## Documentation
+
+For a thorough documentation, have a look at the [Wiki](https://github.com/csshugs/patternlab-scaffolding/wiki).
 
 
 
