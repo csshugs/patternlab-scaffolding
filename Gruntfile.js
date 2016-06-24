@@ -65,7 +65,6 @@ module.exports = function(grunt) {
         'copy:jsPublic',
         'copy:jsCms',
         'shell:patternlab-patterns',
-        'sass_globbing',
         'concurrent',
         'autoprefixer',
         'scsslint'
