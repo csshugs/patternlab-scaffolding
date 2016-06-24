@@ -1,7 +1,7 @@
 module.exports = {
     scss: {
         files: ['<%= globalConfig.source.css %>/**/{.*,*,*/*}'],
-        tasks: ['sass_globbing', 'sass']
+        tasks: ['sass']
     },
     js: {
         files: ['<%= globalConfig.source.js %>/**/{.*,*,*/*}'],

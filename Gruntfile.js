@@ -40,11 +40,7 @@ module.exports = function(grunt) {
 
 
     require('load-grunt-config')(grunt, {
-        jitGrunt: {
-            staticMappings: {
-                scsslint: 'grunt-scss-lint'
-            }
-        },
+        jitGrunt: {},
         config: {
             globalConfig: globalConfig
         }
@@ -65,10 +61,8 @@ module.exports = function(grunt) {
         'copy:jsPublic',
         'copy:jsCms',
         'shell:patternlab-patterns',
-        'sass_globbing',
         'concurrent',
-        'autoprefixer',
-        'scsslint'
+        'autoprefixer'
     ]);
 
     // Pattern Lab dev task.
@@ -83,11 +77,6 @@ module.exports = function(grunt) {
         'default',
         'browserSync',
         'watch'
-    ]);
-
-    // Linting task.
-    grunt.registerTask('lint', [
-        'scsslint'
     ]);
 
 
