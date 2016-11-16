@@ -2,25 +2,25 @@
 
 echo "Initializing project"
 
-git clone https://github.com/pattern-lab/patternlab-php.git && \
-mv patternlab-php/config/ .                                 && \
-mv patternlab-php/core/ .                                   && \
-mv patternlab-php/extras/ .                                 && \
-mv patternlab-php/public/ .                                 && \
-rm -rf patternlab-php                                       && \
-rm -rf source/css                                           && \
-php core/builder.php -g                                     && \
-rm -rf source/css                                           && \
-git submodule init                                          && \
-git submodule update                                        && \
-cd source/css/                                              && \
-git pull origin master                                      && \
-cd ../../                                                   && \
-rm -rf source/css/.git                                      && \
-rm -rf .git/                                                && \
-rm -rf .gitmodules                                          && \
-rm -rf source/js/                                           && \
-mkdir source/js/                                            && \
+git clone --branch v1.0.0 https://github.com/pattern-lab/patternlab-php.git && \
+mv patternlab-php/config/ .                                                 && \
+mv patternlab-php/core/ .                                                   && \
+mv patternlab-php/extras/ .                                                 && \
+mv patternlab-php/public/ .                                                 && \
+rm -rf patternlab-php                                                       && \
+rm -rf source/css                                                           && \
+php core/builder.php -g                                                     && \
+rm -rf source/css                                                           && \
+git submodule init                                                          && \
+git submodule update                                                        && \
+cd source/css/                                                              && \
+git pull origin master                                                      && \
+cd ../../                                                                   && \
+rm -rf source/css/.git                                                      && \
+rm -rf .git/                                                                && \
+rm -rf .gitmodules                                                          && \
+rm -rf source/js/                                                           && \
+mkdir source/js/                                                            && \
 > source/js/script.js
 
 echo "Pattern Lab is now beautifully scaffolded"
